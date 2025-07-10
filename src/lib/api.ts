@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_BASE_URL = 'http://localhost:3001/api'; //'https://audioatlas-backend.onrender.com/api'
+const API_BASE_URL = 'https://atlas-server-9nqa.onrender.com/api';
 
 
 // Create axios instance
