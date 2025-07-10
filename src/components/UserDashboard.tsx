@@ -199,16 +199,16 @@ export default function UserDashboard() {
 
       {tasks.length === 0 && (
         <div className="text-center py-12 animate-fadeIn">
-          <Upload className="h-12 w-12 text-gray-400 mx-auto mb-4" />
-          <h3 className="text-lg font-medium text-atlas-dark mb-2">
+          <Upload className="h-12 w-12 text-white font-bold mx-auto mb-4" />
+          <h3 className="text-lg font-medium text-white font-bold mb-2">
             No tasks yet
           </h3>
-          <p className="text-gray-600 mb-4">
+          <p className="text-white font-semibold mb-4">
             Upload your first audio file to get started
           </p>
           <button
             onClick={() => setShowUpload(true)}
-            className="bg-gradient-to-r from-atlas-primary-default to-atlas-primary-light text-white px-6 py-3 rounded-md hover:from-atlas-primary-light hover:to-atlas-gold transition-all duration-300"
+            className="bg-gradient-to-r from-atlas-gold to-atlas-primary-light text-black font-bold px-6 py-3 rounded-md hover:from-atlas-primary-light hover:to-atlas-gold transition-all duration-300"
           >
             Upload Audio File
           </button>
