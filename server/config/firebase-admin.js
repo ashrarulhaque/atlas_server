@@ -1,28 +1,26 @@
 // server/config/firebase.js
 import admin from 'firebase-admin';
-import fs from 'fs';
-import path from 'path';
 import dotenv from 'dotenv';
-import { fileURLToPath } from 'url';
 
-// For ESM __dirname
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+dotenv.config(); // Load env vars from .env or Render
 
-// Explicitly set path to .env
-dotenv.config({ path: path.resolve(__dirname, '../.env') });
+// Decode base64 service account key (JSON format)
+const base64Key = process.env.FIREBASE_SERVICE_ACCOUNT_B64;
 
+if (!base64Key) {
+  throw new Error('Missing FIREBASE_SERVICE_ACCOUNT_B64 environment variable');
+}
 
-// Resolve relative to the file system (e.g., ./keys/... from .env)
-const serviceAccountPath = path.resolve(process.env.FIREBASE_SERVICE_ACCOUNT_KEY);
-const serviceAccount = JSON.parse(fs.readFileSync(serviceAccountPath, 'utf-8'));
+const serviceAccount = JSON.parse(
+  Buffer.from(base64Key, 'base64').toString('utf-8')
+);
 
-
-
+// Initialize Firebase Admin with decoded credentials
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
-  storageBucket: process.env.FIREBASE_STORAGE_BUCKET,
+  storageBucket: process.env.FIREBASE_STORAGE_BUCKET, // Example: 'your-project-id.appspot.com'
 });
 
+// Export the bucket for file upload/download usage
 const bucket = admin.storage().bucket();
 export default bucket;
