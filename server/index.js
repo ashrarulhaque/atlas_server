@@ -42,6 +42,10 @@ app.get('/api/health', (req, res) => {
   res.json({ status: 'OK', message: 'AudioFlow API is running' });
 });
 
+app.get('/api/ping', (req, res) => {
+  res.status(200).send('pong');
+});
+
 // Create HTTP server and configure timeouts
 const server = http.createServer(app);
 
