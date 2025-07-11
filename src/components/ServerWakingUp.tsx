@@ -1,4 +1,5 @@
-// components/ServerWakingUp.tsx
+import { Music, Zap, Headphones } from 'lucide-react';
+
 export default function ServerWakingUp() {
   return (
     <div className="min-h-screen flex items-center justify-center bg-[#000503] text-[#f4f6f7] px-6">
