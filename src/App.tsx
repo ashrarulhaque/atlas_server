@@ -13,6 +13,7 @@ import Auth from "./components/Auth";
 import Homepage from "./components/Homepage";
 import UserDashboard from "./components/UserDashboard";
 import WorkerDashboard from "./components/WorkerDashboard";
+import NotFound from "./components/NotFound";
 
 function App() {
   const [serverReady, setServerReady] = useState(false);
