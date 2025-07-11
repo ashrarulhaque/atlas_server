@@ -6,6 +6,8 @@ import {
   Navigate,
 } from "react-router-dom";
 import { useAuth } from "./hooks/useAuth";
+import { useState, useEffect } from 'react';
+import ServerWakingUp from './components/ServerWakingUp';
 import Layout from "./components/Layout";
 import Auth from "./components/Auth";
 import Homepage from "./components/Homepage";
@@ -13,6 +15,31 @@ import UserDashboard from "./components/UserDashboard";
 import WorkerDashboard from "./components/WorkerDashboard";
 
 function App() {
+  const [serverReady, setServerReady] = useState(false);
+  const [checking, setChecking] = useState(true);
+
+  useEffect(() => {
+    const checkBackend = async () => {
+      try {
+        const res = await fetch('https://atlas-server-9nqa.onrender.com/api/ping');
+        if (res.ok) {
+          setServerReady(true);
+        }
+      } catch (err) {
+        console.log('Backend not ready yet...');
+        setTimeout(checkBackend, 15000); // retry every 15 sec
+      } finally {
+        setChecking(false);
+      }
+    };
+
+    checkBackend();
+  }, []);
+
+  if (!serverReady && checking) {
+    return <ServerWakingUp />;
+  }
+  
   const { user, loading } = useAuth();
 
   if (loading) {
