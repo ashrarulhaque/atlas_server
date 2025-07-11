@@ -128,10 +128,6 @@ npm run dev
 
 ## 🙌 Credits
 
-Crafted with care by \[Your Name]
+Crafted with care by Ashrarul Haque
 
 ---
-
-## 📜 License
-
-Licensed under the [MIT License](LICENSE).
