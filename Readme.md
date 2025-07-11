@@ -5,7 +5,7 @@
 From raw recordings to polished perfection — **Atlas** specializes in repairing audio issues, enhancing clarity, and mastering your podcast for a professional-grade listening experience.
 
 ---
-
+View the page: https://atlas-client-se6e.onrender.com
 ## 🚀 Features
 
 * 🎵 Upload original audio files (MP3, WAV, FLAC, etc.)
@@ -45,7 +45,7 @@ audioatlas/
 │   └── index.js
 ├── src/
 │   ├── components/
-│   ├── pages/
+│   ├── index.css
 │   └── App.tsx
 └── .env
 ```
