@@ -1,130 +1,63 @@
-# 🎧 Atlas
-
-### Perfect Your Podcast Sound
+# 🎧 Atlas – Perfect Your Podcast Sound
 
 From raw recordings to polished perfection — **Atlas** specializes in repairing audio issues, enhancing clarity, and mastering your podcast for a professional-grade listening experience.
 
+🌐 **Live Demo**: [Visit Atlas](https://atlas-client-se6e.onrender.com)
+
 ---
-View the page: https://atlas-client-se6e.onrender.com
+
 ## 🚀 Features
 
-* 🎵 Upload original audio files (MP3, WAV, FLAC, etc.)
-* 📜 Add titles and descriptions to tasks
-* 📂 Firebase Storage for audio upload & retrieval
-* ⚙️ Separate storage paths for originals and processed files
-* ✅ Task status updates: pending, processing, completed, approved
-* 📬 Message system for revision and collaboration
-* 📥 Download links for processed audio files
+- 🎵 Upload original audio files (MP3, WAV, FLAC, etc.)
+- 📝 Add titles and descriptions to tasks
+- ☁️ Firebase Storage for audio uploads & retrieval
+- 📂 Organized storage paths for original and processed files
+- 📊 Task status tracking: `pending` → `processing` → `completed` → `approved`
+- 💬 Internal messaging for feedback & revision requests
+- ⬇️ Secure download links for processed audio
+- 💳 Stripe Payment Integration with webhooks for real-time task unlocking
+- 💤 Gracefully handles cold starts with a "Waking Up Server..." page
 
 ---
 
 ## 🧰 Tech Stack
 
-### Frontend:
+### 🔹 Frontend
+- React + Vite
+- Tailwind CSS
+- Lucide React (icons)
 
-* React + Vite
-* Tailwind CSS
-
-### Backend:
-
-* Node.js
-* Express.js
-* MongoDB Atlas
-* Firebase Admin SDK (for secure file handling)
-
----
-
-## 📁 Project Structure
-
-```
-audioatlas/
-├── server/
-│   ├── config/
-│   ├── routes/
-│   ├── models/
-│   └── index.js
-├── src/
-│   ├── components/
-│   ├── index.css
-│   └── App.tsx
-└── .env
-```
+### 🔸 Backend
+- Node.js
+- Express.js
+- MongoDB Atlas
+- Firebase Admin SDK (for secure file handling)
+- Stripe API for secure payments
 
 ---
 
-## 🔧 Environment Variables
+## ☁️ Deployment
 
-`.env` file inside the `server/` directory should contain:
+### 🔸 Server
+- Deployed on [Render](https://render.com)
+- Auto-sleep enabled to save resources
+- Webhook endpoints configured for Stripe event handling (e.g. `payment_intent.succeeded`)
+- Handles `wake-up` requests from the client before showing payment or dashboard content
 
-```
-PORT=5000
-MONGODB_URI=your-mongodb-uri
-FIREBASE_STORAGE_BUCKET=your-bucket-name.appspot.com
-FIREBASE_SERVICE_ACCOUNT_BASE64=base64-encoded-service-account-json
-```
-
-> 🛡️ Keep your credentials safe. Use `base64` encoding for Firebase keys in production.
-
----
-
-## 🛠️ How to Run Locally
-
-### 1. Clone the repo
-
-```
-git clone https://github.com/your-username/audioatlas.git
-cd audioatlas
-```
-
-### 2. Install dependencies
-
-* Backend:
-
-```
-cd server
-npm install
-```
-
-* Frontend:
-
-```
-cd ..
-npm install
-```
-
-### 3. Start development servers
-
-* Backend:
-
-```
-cd server
-npm run dev
-```
-
-* Frontend:
-
-```
-npm run dev
-```
+### 🔹 Client
+- Deployed separately on [Render Static Site Hosting](https://render.com)
+- Checks backend availability and shows a **“Waking Up Server…”** animation during cold starts for a smooth UX
 
 ---
 
-## 🌐 Deployment
+## 💳 Stripe Integration
 
-* Deploy server on [Render](https://render.com)
-* Deploy frontend on [Render](https://render.com)
-* Add all necessary `.env` variables in Render/Vercel project settings
+- Secure Stripe Checkout with hosted payment page
+- Dynamic pricing based on selected task
+- Webhook support to confirm payment and update task status as `paid`
+- Handles success and cancel redirects after payment
+- Uses secure environment variables for Stripe secret and webhook signing secret
 
----
-
-## 💡 Future Plans
-
-* Authentication system (OAuth / Firebase Auth)
-* Admin dashboard for reviewing tasks
-* Stripe integration for monetization
-* Audio waveform visualizer
-
----
 
 ## 🙌 Credits
 
