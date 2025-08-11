@@ -72,9 +72,3 @@ graph TD
 3. **Stripe Webhook** updates payment status & session ID in MongoDB
 4. Task state is updated automatically
 
----
-
----
-
-If you want, I can make this README **even more engaging** by adding **animated GitHub profile-style skill cards** and **live status badges** (deployment, last commit, etc.) so recruiters instantly see the project’s health and activity. That would make your GitHub page look like a polished SaaS landing page.
-```
