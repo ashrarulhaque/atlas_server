@@ -1,66 +1,80 @@
-# 🎧 Atlas – Perfect Your Podcast Sound
+# 🎙️ SoundsLikeAtlas - Podcast Processing Platform
 
-From raw recordings to polished perfection — **Atlas** specializes in repairing audio issues, enhancing clarity, and mastering your podcast for a professional-grade listening experience.
+[![Vercel](https://img.shields.io/badge/Deployed%20on-Vercel-black?logo=vercel&logoColor=white)](https://vercel.com)
+[![Node.js](https://img.shields.io/badge/Backend-Node.js-green?logo=node.js&logoColor=white)](https://nodejs.org/)
+[![React](https://img.shields.io/badge/Frontend-React-blue?logo=react&logoColor=white)](https://reactjs.org/)
+[![MongoDB](https://img.shields.io/badge/Database-MongoDB-green?logo=mongodb&logoColor=white)](https://www.mongodb.com/)
+[![Stripe](https://img.shields.io/badge/Payments-Stripe-6366f1?logo=stripe&logoColor=white)](https://stripe.com/)
+[![License](https://img.shields.io/badge/License-MIT-yellow)](LICENSE)
 
-🌐 **Live Demo**: [Visit Atlas](https://atlas-client-se6e.onrender.com)
-
----
-
-## 🚀 Features
-
-- 🎵 Upload original audio files (MP3, WAV, FLAC, etc.)
-- 📝 Add titles and descriptions to tasks
-- ☁️ Firebase Storage for audio uploads & retrieval
-- 📂 Organized storage paths for original and processed files
-- 📊 Task status tracking: `pending` → `processing` → `completed` → `approved`
-- 💬 Internal messaging for feedback & revision requests
-- ⬇️ Secure download links for processed audio
-- 💳 Stripe Payment Integration with webhooks for real-time task unlocking
-- 💤 Gracefully handles cold starts with a "Waking Up Server..." page
+> A **full-stack platform** to upload, process, review, and deliver podcast audio — from **MVC architecture** to **production deployment**.
 
 ---
 
-## 🧰 Tech Stack
-
-### 🔹 Frontend
-- React + Vite
-- Tailwind CSS
-- Lucide React (icons)
-
-### 🔸 Backend
-- Node.js
-- Express.js
-- MongoDB Atlas
-- Firebase Admin SDK (for secure file handling)
-- Stripe API for secure payments
+## 🚀 Live Demo  
+🔗 [Visit Live Website](https://www.soundslikeatlas.com/) *(Replace with actual link)*  
 
 ---
 
-## ☁️ Deployment
+## 📌 Features
 
-### 🔸 Server
-- Deployed on [Render](https://render.com)
-- Auto-sleep enabled to save resources
-- Webhook endpoints configured for Stripe event handling (e.g. `payment_intent.succeeded`)
-- Handles `wake-up` requests from the client before showing payment or dashboard content
+✅ **Audio Upload & Storage** — Securely upload podcast files using **Firebase Storage**  
+✅ **Preview Audio Online** — Integrated **Howler.js** for smooth audio playback  
+✅ **Client-Editor Workflow** — Clients can request revisions, editors can resubmit updated files  
+✅ **Stripe Payments** — Secure checkout with webhook-based payment status tracking  
+✅ **Task Management** — Track progress from `Pending → Completed → Approved`  
+✅ **Error Handling** — MongoDB middleware for database error management & uptime optimization  
+✅ **Custom Domain Setup** — Configured DNS via Namecheap  
+✅ **Serverless Architecture** — Deployed on Vercel using monolithic serverless approach  
 
-### 🔹 Client
-- Deployed separately on [Render Static Site Hosting](https://render.com)
-- Checks backend availability and shows a **“Waking Up Server…”** animation during cold starts for a smooth UX
+---
+
+## 🛠️ Tech Stack
+
+**Frontend:**  
+![React](https://img.shields.io/badge/React-61dafb?logo=react&logoColor=white)  
+![Vite](https://img.shields.io/badge/Vite-646cff?logo=vite&logoColor=white)  
+![TailwindCSS](https://img.shields.io/badge/TailwindCSS-38bdf8?logo=tailwind-css&logoColor=white)  
+
+**Backend:**  
+![Node.js](https://img.shields.io/badge/Node.js-339933?logo=node.js&logoColor=white)  
+![Express](https://img.shields.io/badge/Express-000000?logo=express&logoColor=white)  
+
+**Database & Storage:**  
+![MongoDB](https://img.shields.io/badge/MongoDB-47a248?logo=mongodb&logoColor=white)  
+![Firebase](https://img.shields.io/badge/Firebase-ffca28?logo=firebase&logoColor=black)  
+
+**Payments & APIs:**  
+![Stripe](https://img.shields.io/badge/Stripe-635bff?logo=stripe&logoColor=white)  
+![Howler.js](https://img.shields.io/badge/Howler.js-ff0000?logo=javascript&logoColor=white)  
+
+**Deployment & Tools:**  
+![Vercel](https://img.shields.io/badge/Vercel-000000?logo=vercel&logoColor=white)  
+![Namecheap](https://img.shields.io/badge/Namecheap-de572f?logo=namecheap&logoColor=white)  
 
 ---
 
-## 💳 Stripe Integration
+## ⚙️ Project Architecture
 
-- Secure Stripe Checkout with hosted payment page
-- Dynamic pricing based on selected task
-- Webhook support to confirm payment and update task status as `paid`
-- Handles success and cancel redirects after payment
-- Uses secure environment variables for Stripe secret and webhook signing secret
+```mermaid
+graph TD
+    A[Client - React + Howler.js] -->|Requests/Uploads| B[Node.js + Express API]
+    B -->|Store Files| C[Firebase Storage]
+    B -->|Store Metadata| D[MongoDB Atlas]
+    B -->|Process Payments| E[Stripe API + Webhooks]
+    B -->|Serve Audio| A
+````
 
+## 💳 Payment Flow
 
-## 🙌 Credits
-
-Crafted with care by Ashrarul Haque
+1. Client selects audio processing package
+2. Payment is processed through **Stripe Checkout**
+3. **Stripe Webhook** updates payment status & session ID in MongoDB
+4. Task state is updated automatically
 
 ---
+
+---
+
+If you want, I can make this README **even more engaging** by adding **animated GitHub profile-style skill cards** and **live status badges** (deployment, last commit, etc.) so recruiters instantly see the project’s health and activity. That would make your GitHub page look like a polished SaaS landing page.
+```
