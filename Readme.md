@@ -12,7 +12,7 @@
 ---
 
 ## 🚀 Live Demo  
-🔗 [Visit Live Website](https://www.soundslikeatlas.com/) *(Replace with actual link)*  
+🔗 [Visit Live Website](https://www.soundslikeatlas.com/)
 
 ---
 
